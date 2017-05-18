@@ -1,0 +1,38 @@
+html, body {
+	background-color: black;
+	min-height: 100%;
+	color: white;
+}
+
+body img {
+	display: block;
+	margin: auto;
+}
+
+h1 {
+	font-family: Verdana-serif, Helvetica-serif;
+	font-size: 24px;
+	font-weight: bold;
+	letter-spacing: 8px;
+	text-align: center;
+}
+
+.game {
+	text-align: center;
+}
+
+.game button:hover{
+	border: solid 2px white;
+	background-color: black;
+	color: white;
+}
+
+.game button:active{
+	color: red;
+}
+
+#imgContainer img {
+	margin-top: 2%;
+	border: 1px solid white;
+	border-radius: 2px;
+}
