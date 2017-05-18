@@ -5,7 +5,9 @@ window.onload = function(){
 					  "highway", "microphone", "headphones", "pillow", "painting", "tissue", "keyboard", "piano", "mouse", "rabbit", "grizzly", "mountain", "television", "javascript"];
 	var randomWord = wordArray[Math.floor(Math.random() * wordArray.length)];
 	var chosenWord;
+	var guessedLetter;
 	var count = 1;
+	var wordArray = [];
 	var guesses = [];
 
 	startGame();
@@ -14,9 +16,9 @@ window.onload = function(){
 
 	function startGame(){
 		for (var i = 0; i < randomWord.length; i++){
-			guesses[i] = "_";
+			wordArray[i] = "_";
 		}
-		chosenWord = guesses.join(" ");
+		chosenWord = wordArray.join(" ");
 		document.getElementById("empty").innerHTML = chosenWord;
 	}
 	
@@ -24,21 +26,20 @@ window.onload = function(){
 
 	document.onkeyup = function(event){
 		var userGuess = event.key;
-			if (userGuess.length > 0){
 				for (var i = 0; i < randomWord.length; i++){
 					if (randomWord[i] === userGuess){
-						
-					}
-					else {
-						wrongAnswer();
+						guesses.push(userGuess)
+						wordArray[i] = userGuess;
+						chosenWord = wordArray.join(" ");
+						document.getElementById("empty").innerHTML = chosenWord;
+						guessedLetter = guesses.join(" ");
+						document.getElementById("guesses").innerHTML = guessedLetter;
 					}
 				}
 			}
-	}
 
 	function wrongAnswer(){
-
-			document.getElementById("hang").src="assets/images/Hang-" + (count) + ".png"
+			document.getElementById("hang").src="assets/images/Hang-" + (count) + ".png";
 		}	
 
 }
